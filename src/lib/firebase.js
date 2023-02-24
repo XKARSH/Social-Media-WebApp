@@ -1,15 +1,17 @@
-// import firebase from "firebase/app";
-// import "firebase/firestore";
-// import "firebase/auth";
+import Firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
 
-// //here want to import the seed file.
+const config = {
+  apiKey: "AIzaSyB7Qg7Xwc9sCEUPdE6oc_R1QduptyNfQmY",
+  authDomain: "instagram-3b0e0.firebaseapp.com",
+  projectId: "instagram-3b0e0",
+  storageBucket: "instagram-3b0e0.appspot.com",
+  messagingSenderId: "102455913245",
+  appId: "1:102455913245:web:2082c78ba2d5cd3396cff4",
+};
 
-// // const config = (In Firebase, add Firebase to your web app & copy the config);
+const firebase = Firebase.initializeApp(config);
+const { FieldValue } = Firebase.firestore;
 
-// const firebase = firebase.initializeApp(config);
-// const { FieldValue } = firebase.firestore;
-
-// //here want to call the seed file (only ONCE)
-// // seedDatabase(firebase)
-
-// export { firebase, FieldValue };
+export { firebase, FieldValue };

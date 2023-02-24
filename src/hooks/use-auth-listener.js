@@ -5,11 +5,10 @@ import { useState, useEffect, useContext } from "react";
 import firebaseContext from "../context/firebase";
 
 export default function useAuthListener() {
-  const [user, setUser] = useState.apply(
+  const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("authUser"))
   );
   const { firebase } = useContext(firebaseContext);
-
   useEffect(() => {
     const listener = firebase.auth().onAuthStateChanged((authUser) => {
       if (authUser) {
@@ -24,4 +23,6 @@ export default function useAuthListener() {
 
     return () => listener();
   }, [firebase]);
+
+  return { user };
 }
